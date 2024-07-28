@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <input type="text" class="form-control" [(ngModel)]="inputtext">
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="my-3" *ngFor="let item of users | userfilter : inputtext" >
+                <div>Name: {{item.name | substrPipes : 8}}</div>
+                <div>Joined Date: {{item.joineddate |date:'fullDate' | uppercase }}</div>
+                <div>Age:{{item.age || '--'}}</div>
+                <div>Gender:{{item.gender || '--'}}</div>
+            </div>
+        </div>
+    </div>
+</div>

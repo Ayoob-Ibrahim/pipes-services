@@ -1,0 +1,57 @@
+<form [formGroup]="profileForm">
+    <label for="firstname">First name: </label>
+    <input type="text" name="firstname" formControlName="firstName" required>
+    <br>
+    <label for="lastname">Last name: </label>
+    <input type="text" name="lastname" formControlName="lastName" required>
+    <br>
+    <!-- <label for="email">email: </label>
+    <input type="email" name="" required> -->
+    <br>
+    <label for="password">password: </label>
+    <input type="password" name="password" required>
+    <br>
+
+    <div formGroupName="address">
+        <h2>Address</h2>
+
+        <label for="street">Street: </label><br>
+        <input id="street" type="text" formControlName="street">
+        <br>
+        <label for="city">City: </label><br>
+        <input id="city" type="text" formControlName="city">
+        <br>
+        <label for="state">State: </label><br>
+        <input id="state" type="text" formControlName="state">
+        <br>
+        <label for="zip">Zip Code: </label>
+        <input id="zip" type="text" formControlName="zip">
+    </div>
+
+
+    <div formArrayName="aliases">
+        <h2>Aliases</h2>
+        <button type="button" (click)="addAlias()">+ Add another alias</button>
+        <div *ngFor="let alias of aliases.controls; let i=index">
+            <!-- The repeated alias template -->
+            <label for="alias-{{ i }}">Alias:</label>
+            <input id="alias-{{ i }}" type="text" [formControlName]="i">
+        </div>
+    </div>
+
+
+    <button (click)="test()">TEST</button>
+</form>
+
+
+
+<form [formGroup]="myForm">
+    <div formArrayName="myArray">
+        <div *ngFor="let control of myArray.controls; let i = index">
+            <label for="alias-{{ i }}">Alias:</label>
+            <input [formControlName]="i" placeholder="Item {{ i }}">
+            <button (click)="removeItem(i)">Remove</button>
+        </div>
+    </div>
+    <button (click)="addItem()">Add Item</button>
+</form>

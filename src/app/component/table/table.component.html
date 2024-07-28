@@ -1,0 +1,21 @@
+<h1>Filter pipes Check</h1>
+
+<table id="customers">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>marks</th>
+        <th>percentage</th>
+        <th>pipes Manipulation</th>
+    </tr>
+    <tr *ngFor="let item of list">
+        <td>{{item.studentName | substrPipes : 5}}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.mark}}</td>
+        <td>{{item.percentage}}</td>
+        <td><input type="number" [(ngModel)]="item.mark" value="item.mark">{{item.mark | filterPipes : item.mark : 2}}
+        </td>
+    </tr>
+    <button (click)="navi()">Navigation</button>
+    <app-standalone></app-standalone>
+</table>

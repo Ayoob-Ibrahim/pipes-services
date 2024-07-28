@@ -1,0 +1,18 @@
+<h1>{{stirngInterpolation}}</h1><br>
+<!-- //string interpolation is used for string expression -->
+<div>
+    <input [value]='propertyBinding'>
+</div><br>
+<!-- //property binding is used for non string expression -->
+<mark>Changing the {{variable}} </mark><br>
+<button class="btn btn-primary" (click)="eventBinding()">Event Binding</button><br>
+
+
+
+<!-- two way data binding -->
+<br>
+<input type="text" [(ngModel)]="data" [value]="text" [placeholder]="text"/>
+<small>
+    {{data}}
+</small>
+
